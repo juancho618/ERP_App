@@ -12,15 +12,19 @@ namespace ERP_App.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class Units
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string fk_Category { get; set; }
-        public bool Status { get; set; }
-        public string fk_Unit { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Units()
+        {
+            this.Products = new HashSet<Products>();
+        }
     
-        public virtual Categories Categories { get; set; }
-        public virtual Units Units { get; set; }
+        public string Id { get; set; }
+        public string Unit { get; set; }
+        public bool Status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Products> Products { get; set; }
     }
 }

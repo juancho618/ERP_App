@@ -12,15 +12,12 @@ namespace ERP_App.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Products
+    public partial class sysdiagrams
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string fk_Category { get; set; }
-        public bool Status { get; set; }
-        public string fk_Unit { get; set; }
-    
-        public virtual Categories Categories { get; set; }
-        public virtual Units Units { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

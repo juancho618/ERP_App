@@ -14,6 +14,11 @@
         <AssociationConnector Association="ERPModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="ERPModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="ERPModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ERPModel.Categories" Width="1.5" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="ERPModel.sysdiagrams" Width="1.5" PointX="5.625" PointY="6.75" />
+        <EntityTypeShape EntityType="ERPModel.Units" Width="1.5" PointX="0.75" PointY="9.75" />
+        <AssociationConnector Association="ERPModel.FK_Products_Categories" />
+        <AssociationConnector Association="ERPModel.FK_Products_Units" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
