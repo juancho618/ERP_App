@@ -18,7 +18,22 @@ namespace ERP_App.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            return View();
+        }
+
+        public JsonResult ProductsList()
+        {
+            var query = (from q in db.Products
+                         where q.Status == true
+                         select new
+                         {
+                             Id = q.Id,
+                             Name = q.Name,
+                             Category = q.Categories.Category,
+                             Unit = q.Units.Unit
+                         });
+
+            return Json(new { data = query.ToList() }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Products/Details/5
