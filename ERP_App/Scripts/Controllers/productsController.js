@@ -6,8 +6,7 @@
             $scope.categories = {};
             $scope.units = {};
             init();
-            GetCategories();    
-            GetUnits();
+            
 
             function init() {
                 //Llamado a los datos y ponerlos en un $scope
@@ -60,6 +59,12 @@
                     }).error(function(e){
                         console.log(e);
                     });
+            }
+
+            $scope.open_modal = function (id_modal) {
+                GetCategories();
+                GetUnits();
+                $('#' + id_modal).modal('show');
             }
         }]);
 })();

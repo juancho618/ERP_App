@@ -7,7 +7,9 @@
 
 <div ng-controller="productsController">
     <div>
-        <button class="btn btn-info"  onclick="productModal()"><i class="fa fa-plus"></i> New Product</button>
+        <button class="btn btn-info" data-ng-click="open_modal('createProductModal')">
+            <i class="fa fa-plus"></i> New Product
+        </button>
     </div>
     <table class="table table-responsive table-striped">
         <thead>
@@ -77,11 +79,3 @@
         </div>
     </div>
 </div>
-@section Scripts{
-    <script>
-
-    function productModal(){
-        $('#createProductModal').modal('show');
-    }
-</script>
-}
