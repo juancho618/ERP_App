@@ -16,6 +16,19 @@ namespace ERP_App.Controllers
         {
             return View();
         }
+        //GET: Category List
+        public JsonResult GetCategories()
+        {
+            var query = (from q in db.Categories
+                         where q.Status == true
+                         select new
+                         {
+                             Id = q.Id,
+                             Category = q.Category
+                         });
+            return Json(new { data=query.ToList()}, JsonRequestBehavior.AllowGet);
+        }
+
         //POST: Create Category
         [HttpPost]
         public JsonResult Create([Bind(Include ="Id,Category,Status")] Categories category)

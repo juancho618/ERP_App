@@ -18,6 +18,19 @@ namespace ERP_App.Controllers
             return View();
         }
 
+        //GET: Unit List
+        public JsonResult GetUnits()
+        {
+            var query = (from q in db.Units
+                         where q.Status == true
+                         select new
+                         {
+                             Id = q.Id,
+                             Unit = q.Unit
+                         });
+            return Json(new { data = query.ToList() }, JsonRequestBehavior.AllowGet);
+        }
+
         //POST: Create Category
         [HttpPost]
         public JsonResult Create([Bind(Include = "Id,Unit,Status")] Units unit)
