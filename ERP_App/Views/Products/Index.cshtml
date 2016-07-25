@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Products List</h2>
 
 <div ng-controller="productsController">
     <div>
@@ -32,45 +32,47 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="productModalLabel">Create product</h4>
                 </div>
-                <div class="modal-body">
-                    <form method="post" ng-submit="addProduct()">
-                        @Html.AntiForgeryToken()
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="nameProduct" class="control-label">Name</label>
-                                <input type="text" class="form-control" id="nameProduct" name="Name" />
+                <form name="product" method="post" ng-submit="addProduct()">
+                    @Html.AntiForgeryToken()
+                    <div class="modal-body">                       
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="nameProduct" class="control-label">Name</label>
+                            <input type="text" class="form-control" id="nameProduct" data-ng-model="product.Name" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="categoryProduct" class="control-label">Category</label>
+                            <select ng-repeat="item in categories" class="form-control" data-ng-model="product.fk_Category">
+                                <option value="">-- Select Category --</option>
+                                <option value="{{item.Category}}">{{item.Category}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="unitProduct" class="control-label">Unit</label>
+                            <select ng-repeat="item in units" class="form-control" data-ng-model="product.fk_Unit">
+                                <option value="">-- Select Unit --</option>
+                                <option value="{{item.Unit}}">{{item.Unit}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" data-ng-model="product.Status" data-ng-init="product.Status=true"> Visible
+                                </label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="categoryProduct" class="control-label">Category</label>
-                                <select ng-repeat="item in categories" class="form-control" name="fk_Category">
-                                    <option value="">-- Select Category --</option>
-                                    <option value="{{item.Category}}">{{item.Category}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="unitProduct" class="control-label">Unit</label>
-                                <select ng-repeat="item in units" class="form-control" name="fk_Unit">
-                                    <option value="">-- Select Unit --</option>
-                                    <option value="{{item.Unit}}">{{item.Unit}}</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="" name="Status">Disable</label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="btnGuardarModalGeneral"><i class="fa fa-plus"></i>Add</button>
+                    <button type="submit" class="btn btn-primary" id="btnSaveModal"><i class="fa fa-plus"></i>Add</button>
                 </div>
+            </form>
             </div>
         </div>
     </div>

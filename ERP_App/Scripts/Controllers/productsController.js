@@ -6,7 +6,7 @@
             $scope.categories = {};
             $scope.units = {};
             init();
-            GetCategories();
+            GetCategories();    
             GetUnits();
 
             function init() {
@@ -43,6 +43,23 @@
                 }).error(function (e) {
                     console.log(e);
                 });
+            }
+
+            $scope.addProduct = function () {
+                $scope.token = $('[name="__RequestVerificationToken"]').val();
+                $http({
+                    method: 'post',
+                    url: '/Products/Create/',
+                    data: $scope.product,
+                    headers: {
+                        'RequestVerificationToken': $scope.token
+                    }
+                    }).success(function(e){
+                        console.log(e.data);
+                        $scope.product = e.data;
+                    }).error(function(e){
+                        console.log(e);
+                    });
             }
         }]);
 })();
