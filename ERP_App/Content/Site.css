@@ -101,11 +101,13 @@ textarea {
     line-height: 60px;
     background: #EA2D49;
     color: #fff;
-    height: 110px;
+    height: 47px;
+    border-bottom: 1px solid #c12d43;
 }
 
 .sidebar-nav > .sidebar-brand > .logo {
-    padding-top: 6px;
+    height: 47px;
+    margin-left: 68px;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -115,6 +117,17 @@ textarea {
 .sidebar-nav > .sidebar-brand a:hover {
     color: #fff;
     background: none;
+}
+
+/* Header */
+header.main_header {
+    background: rgba(234, 234, 234, 0.6);
+    padding: 6px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.avatar {
+    width: 20px;
 }
 
 /*Dise;o en las tablas */
