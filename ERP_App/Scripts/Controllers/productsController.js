@@ -67,7 +67,7 @@
 
             $scope.open_modal = function (id_modal) {
                 GetCategories();
-                GetUnits();
+                GetUnits(); 
                 $('#' + id_modal).modal('show');
             }
         }]);
