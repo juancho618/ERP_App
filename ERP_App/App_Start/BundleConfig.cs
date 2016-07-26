@@ -22,6 +22,7 @@ namespace ERP_App
                       "~/Scripts/respond.js"));
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                     "~/Scripts/angular.min.js",
+                    "~/Scripts/angular-selectize.js",
                     "~/Scripts/app.js").IncludeDirectory(
                     "~/Scripts/Controllers", "*.js"));
 

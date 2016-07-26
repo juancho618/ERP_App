@@ -8,6 +8,8 @@
         @Styles.Render("~/Content/font-awesome")
         @Scripts.Render("~/bundles/modernizr")
         <link href="~/Content/sweetalert.css" rel="stylesheet" />
+        <link href="~/Content/selectize.css" rel="stylesheet" />
+        <link href="~/Content/selectize.default.css" rel="stylesheet" />
     </head>
 
     <body>
@@ -103,8 +105,12 @@
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/bundles/angular")
+
         <script src="~/Scripts/sweetalert.min.js"></script>
+        <script src="~/Scripts/selectize.js"></script>
+        
+        @Scripts.Render("~/bundles/angular")
+        
         @RenderSection("scripts", required: false)
     </body>
 </html>

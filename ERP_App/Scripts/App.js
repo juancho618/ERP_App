@@ -1,3 +1,3 @@
 ﻿(function () {
-    var erp = angular.module('ERP_App', []);
+    var erp = angular.module('ERP_App', ['selectize']);
 })();

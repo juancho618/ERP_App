@@ -61,33 +61,25 @@ namespace ERP_App.Controllers
                 //Check if the Category Exist!
                 CategoryController category = new CategoryController();
                 var existCategory = category.CategoryExist(products.fk_Category);
-                if (existCategory == true)
-                {
-                    products.fk_Category = db.Categories.Where(x => x.Category.ToUpper() == products.fk_Category.ToUpper()).Select(x => x.Id).SingleOrDefault();
-                }
-                else
+                if (existCategory != true)
                 {
                     Categories newCategory = new Categories();
                     newCategory.Category = products.fk_Category;
                     newCategory.Status = true;
                     category.Create(newCategory);
                 }
-
+                products.fk_Category = db.Categories.Where(x => x.Category.ToUpper() == products.fk_Category.ToUpper()).Select(x => x.Id).SingleOrDefault();
                 //Check if the Unit Exist!
                 UnitController unit = new UnitController();
                 var existUnit = unit.UnitExist(products.fk_Unit);
-                if (existUnit == true)
-                {
-                    products.fk_Unit = db.Units.Where(x => x.Unit.ToUpper() == products.fk_Unit.ToUpper()).Select(x => x.Id).SingleOrDefault();
-                }
-                else
+                if (existUnit != true)
                 {
                     Units newUnit = new Units();
                     newUnit.Unit = products.fk_Unit;
                     newUnit.Status = true;
                     unit.Create(newUnit);
                 }
-
+                products.fk_Unit = db.Units.Where(x => x.Unit.ToUpper() == products.fk_Unit.ToUpper()).Select(x => x.Id).SingleOrDefault();
                 //Create Product
                 GenerateId generator = new GenerateId();
                 products.Id = generator.generateID();

@@ -8,6 +8,29 @@
 
             $scope.loaded = false;
 
+            $scope.myConfigCategory = {
+                create: true,
+                valueField: 'Category',
+                labelField: 'Category',
+                delimiter: '|',
+                placeholder: 'Pick something',
+                onInitialize: function (selectize) {
+                    // receives the selectize object as an argument
+                },
+                 maxItems: 1
+            };
+            $scope.myConfigUnit = {
+                create: true,
+                valueField: 'Unit',
+                labelField: 'Unit',
+                delimiter: '|',
+                placeholder: 'Pick something',
+                onInitialize: function (selectize) {
+                    // receives the selectize object as an argument
+                },
+                maxItems: 1
+            };
+
             init();
             
 
@@ -81,8 +104,22 @@
             }
 
             $scope.open_modal = function (id_modal) {
+               
                 GetCategories();
-                GetUnits(); 
+                GetUnits();
+                //Inicializar los selectsize
+                //$('#category,#unit').selectize({
+                //    delimiter: ',',
+                //    persist: false,
+                //    maxItems: 1,
+                //    create: function (input) {
+                //        return {
+                //            value: input,
+                //            text: input
+                //        }
+                //    }
+                //});
+               
                 $('#' + id_modal).modal('show');
             }
 

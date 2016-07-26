@@ -234,6 +234,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\selectize.css" />
+    <Content Include="Content\selectize.default.css" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -250,6 +252,7 @@
       <DependentUpon>ERPDataModel.edmx</DependentUpon>
       <LastGenOutput>ERPDataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\angular-selectize.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
