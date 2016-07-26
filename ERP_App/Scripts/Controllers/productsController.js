@@ -5,10 +5,14 @@
             $scope.productList = {};
             $scope.categories = {};
             $scope.units = {};
+
+            $scope.loaded = false;
+
             init();
             
 
             function init() {
+                $scope.loaded = true;
                 //Llamado a los datos y ponerlos en un $scope
                 $http({
                     method: 'get',
