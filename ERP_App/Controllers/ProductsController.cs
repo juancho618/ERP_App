@@ -50,18 +50,7 @@ namespace ERP_App.Controllers
             }
             return View(products);
         }
-
-        // GET: Products/Create
-        public ActionResult Create()
-        {
-            ViewBag.fk_Categories = new SelectList(db.Categories, "Category", "Category");
-            ViewBag.fk_Units = new SelectList(db.Units, "Unit", "Unit");
-            return View();
-        }
-
-        // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         //[ValidateAntiForgeryToken]
         public JsonResult Create([Bind(Include = "Id,Name,fk_Category,Status,fk_Unit")] Products products)
@@ -104,8 +93,18 @@ namespace ERP_App.Controllers
                 products.Id = generator.generateID();
                 db.Products.Add(products);
                 db.SaveChanges();
-                message = "The product was successfuly created";
-                return Json(new { message = message }, JsonRequestBehavior.AllowGet);
+                message = "The product was successfully created";
+
+                var producto = new
+                {
+                    Id = products.Id,
+                    Name = products.Name,
+                    Category = db.Categories.Find(products.fk_Category).Category,
+                    Unit= db.Units.Find(products.fk_Unit).Unit
+
+                };
+
+                return Json(new { message = message, data = producto }, JsonRequestBehavior.AllowGet);
             }
             message = "It has benn an error creating the product";
             return Json(new {message=message }, JsonRequestBehavior.AllowGet);
